@@ -1,0 +1,13 @@
+/var/log/twelite.log{
+	rotate 10
+	weekly
+#	copytruncate
+	create 0664 root pi
+	compress
+	missingok
+	notifempty
+	postrotate
+	/etc/init.d/rsyslog restart
+	/etc/init.d/twemonitor.sh restart
+	endscript
+}
